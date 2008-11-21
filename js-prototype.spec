@@ -1,7 +1,7 @@
 Summary:	Prototype JavaScript framework: Easy Ajax and DOM manipulation for dynamic web application
 Name:		prototype
 Version:	1.6.0.3
-Release:	1
+Release:	2
 License:	MIT
 Group:		Applications/WWW
 Source0:	http://www.prototypejs.org/assets/2008/9/29/%{name}-%{version}.js
@@ -11,6 +11,9 @@ BuildRequires:	sed >= 4.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_webapps	/etc/webapps
+%define		_webapp		%{name}
+%define		_sysconfdir	%{_webapps}/%{_webapp}
 %define		_appdir	%{_datadir}/%{name}
 
 %description
