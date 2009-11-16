@@ -1,7 +1,7 @@
 Summary:	Prototype JavaScript framework: Easy Ajax and DOM manipulation for dynamic web application
 Name:		prototype
 Version:	1.6.0.3
-Release:	2
+Release:	3
 License:	MIT
 Group:		Applications/WWW
 Source0:	http://www.prototypejs.org/assets/2008/9/29/%{name}-%{version}.js
@@ -30,6 +30,7 @@ cp -a %{SOURCE0} %{name}.js
 
 cat <<'EOF' > apache.conf
 Alias /%{name}.js %{_appdir}/%{name}.js
+Alias /js/%{name}.js %{_appdir}/%{name}.js
 <Directory %{_appdir}>
 	Allow from all
 </Directory>
@@ -38,6 +39,7 @@ EOF
 cat > lighttpd.conf <<'EOF'
 alias.url += (
     "/%{name}.js/" => "%{_appdir}/%{name}.js",
+    "/js/%{name}.js/" => "%{_appdir}/%{name}.js",
 )
 EOF
 
